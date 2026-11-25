@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="mn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mongol AI</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+
+ margin:0;background:#090b10;color:white;
+
+ font-family:Arial,sans-serif;padding:20px;
+
+}
+
+header{text-align:center;padding:35px 0}
+
+h1{font-size:38px;color:#a78bfa}
+
+header p{color:#999}
+
+.tools{
+
+ display:grid;grid-template-columns:1fr 1fr;
+
+ gap:12px;margin:25px 0;
+
+}
+
+.tool{
+
+ background:#171b26;border:1px solid #292e3c;
+
+ padding:22px 12px;border-radius:15px;
+
+ color:white;text-align:center;
+
+}
+
+.chat{
+
+ background:#171b26;border-radius:18px;
+
+ padding:18px;
+
+}
+
+#messages{
+
+ min-height:180px;max-height:300px;
+
+ overflow-y:auto;color:#ddd;
+
+}
+
+input{
+
+ width:100%;padding:16px;
+
+ border:1px solid #34394a;
+
+ border-radius:12px;background:#0d1018;
+
+ color:white;margin-top:12px;
+
+}
+
+button{
+
+ background:#8055ed;color:white;
+
+ border:0;border-radius:12px;
+
+ padding:14px;width:100%;
+
+ margin-top:10px;font-size:16px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>MONGOL AI</h1>
+
+<p>Таны ухаалаг AI туслах 🚀</p>
+
+</header>
+
+<h3>AI хэрэгслүүд</h3>
+
+<div class="tools">
+
+<div class="tool">💬<br>AI Chat</div>
+
+<div class="tool">🎨<br>AI Image</div>
+
+<div class="tool">🎬<br>AI Video</div>
+
+<div class="tool">✍️<br>AI Writer</div>
+
+<div class="tool">🌐<br>Translator</div>
+
+<div class="tool">💻<br>Code AI</div>
+
+</div>
+
+<div class="chat">
+
+<h3>💬 Mongol AI Chat</h3>
+
+<div id="messages">
+
+Сайн байна уу! Би Mongol AI.
+
+Танд юугаар туслах вэ?
+
+</div>
+
+<input id="msg" placeholder="Энд асуултаа бичээрэй...">
+
+<button onclick="send()">Илгээх ➤</button>
+
+</div>
+
+<script>
+
+function send(){
+
+ const input=document.getElementById('msg');
+
+ const box=document.getElementById('messages');
+
+ if(!input.value.trim())return;
+
+ box.innerHTML += '<p><b>Та:</b> '+
+
+ escapeHTML(input.value)+'</p>';
+
+ box.innerHTML += '<p><b>Mongol AI:</b> Таны мессеж хүлээн авлаа. Жинхэнэ AI холболтыг дараагийн алхмаар хийнэ.</p>';
+
+ input.value='';
+
+ box.scrollTop=box.scrollHeight;
+
+}
+
+function escapeHTML(s){
+
+ return s.replace(/[&<>"']/g,c=>({
+
+ '&':'&amp;','<':'&lt;','>':'&gt;',
+
+ '"':'&quot;',"'":'&#39;'
+
+ }[c]));
+
+}
+
+</script>
+
+</body>
+
+</html>
